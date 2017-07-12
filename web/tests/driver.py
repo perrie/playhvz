@@ -405,3 +405,15 @@ class WholeDriver:
       lambda: self.FindElement(pathToRow + [[By.NAME, 'menu-item-%s' % buttonName]]))
     self.Click(pathToRow + [[By.NAME, 'menu-item-%s' % buttonName]])
 
+  def BackButtonClick(self, currPage, destinationPage):
+    #self.ExpectContains(currPage)
+    if self.is_mobile:
+      print "Is mobile"
+      self.RetryUntil(
+        lambda: self.Click([[By.NAME, 'backButton']]),
+        lambda: self.FindElement([[By.NAME, currPage], [By.NAME, 'drawerButton']]),
+      )
+#    else
+      # use the browser back button
+ #     print "Is not mobile"
+
